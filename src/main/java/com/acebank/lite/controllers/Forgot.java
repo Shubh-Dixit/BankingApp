@@ -45,6 +45,15 @@ public class Forgot extends HttpServlet {
             String confirmPassword = request.getParameter("confirmPassword");
             String sessionOtp = (String) session.getAttribute("resetOtp");
             String sessionEmail = (String) session.getAttribute("resetEmail");
+            Long sessionOtpTime = (Long) session.getAttribute("resetOtpTime");
+
+            // Check if OTP has expired (5 minutes = 5 * 60 * 1000 milliseconds)
+            if (sessionOtpTime != null && (System.currentTimeMillis() - sessionOtpTime) > 300000) {
+                session.removeAttribute("resetOtp");
+                session.removeAttribute("resetOtpTime");
+                response.sendRedirect("verify-otp.jsp?error=otp_expired");
+                return;
+            }
 
             if (sessionOtp != null && sessionOtp.equals(inputOtp) && sessionEmail != null) {
                 if (newPassword != null && newPassword.equals(confirmPassword)) {
@@ -52,6 +61,7 @@ public class Forgot extends HttpServlet {
                     if (updated) {
                         session.removeAttribute("resetOtp");
                         session.removeAttribute("resetEmail");
+                        session.removeAttribute("resetOtpTime");
                         response.sendRedirect("login.jsp?msg=Password+Reset+Successfully");
                     } else {
                         response.sendRedirect("verify-otp.jsp?error=update_failed");

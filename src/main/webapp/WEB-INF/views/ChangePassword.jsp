@@ -79,11 +79,6 @@
                                 <span class="material-symbols-outlined dark:hidden">dark_mode</span>
                                 <span class="material-symbols-outlined hidden dark:block">light_mode</span>
                             </button>
-                            <button
-                                class="flex items-center justify-center rounded-lg h-10 w-10 hover:bg-primary/10 transition-colors">
-                                <span
-                                    class="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>
-                            </button>
                             <div
                                 class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
                                 <span class="material-symbols-outlined text-primary">person</span>
@@ -158,15 +153,6 @@
                                                     <span class="material-symbols-outlined">visibility</span>
                                                 </button>
                                             </div>
-                                            <!-- Password Strength Indicator -->
-                                            <div class="mt-3 flex gap-1 items-center">
-                                                <div class="h-1.5 flex-1 bg-primary rounded-full"></div>
-                                                <div class="h-1.5 flex-1 bg-primary rounded-full"></div>
-                                                <div class="h-1.5 flex-1 bg-primary/20 rounded-full"></div>
-                                                <div class="h-1.5 flex-1 bg-primary/20 rounded-full"></div>
-                                                <span class="ml-2 text-xs font-bold text-primary italic uppercase">Fair
-                                                    Strength</span>
-                                            </div>
                                         </div>
                                         <!-- Confirm New Password -->
                                         <div>
@@ -211,22 +197,7 @@
                                             <li class="flex items-start gap-2">
                                                 <span
                                                     class="material-symbols-outlined text-primary text-base">check_circle</span>
-                                                <span>Minimum 12 characters long</span>
-                                            </li>
-                                            <li class="flex items-start gap-2">
-                                                <span
-                                                    class="material-symbols-outlined text-primary text-base">check_circle</span>
-                                                <span>Include at least one uppercase letter</span>
-                                            </li>
-                                            <li class="flex items-start gap-2">
-                                                <span
-                                                    class="material-symbols-outlined text-primary text-base">check_circle</span>
-                                                <span>Include at least one number</span>
-                                            </li>
-                                            <li class="flex items-start gap-2">
-                                                <span
-                                                    class="material-symbols-outlined text-primary text-base">check_circle</span>
-                                                <span>Include at least one special character</span>
+                                                <span>Minimum 10 characters long</span>
                                             </li>
                                             <li class="flex items-start gap-2">
                                                 <span

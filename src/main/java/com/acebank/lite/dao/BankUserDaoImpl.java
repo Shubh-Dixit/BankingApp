@@ -308,4 +308,16 @@ public class BankUserDaoImpl implements BankUserDao {
         return BigDecimal.ZERO;
     }
 
+    @Override
+    public boolean applyLoan(int accountNo, String loanType) throws SQLException {
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(QueryLoader.get("loan.apply"))) {
+            ps.setInt(1, accountNo);
+            ps.setString(2, loanType);
+            return ps.executeUpdate() > 0;
+        }
+    }
+
+
+
 }

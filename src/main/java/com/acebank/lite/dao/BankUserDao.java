@@ -34,4 +34,6 @@ public interface BankUserDao {
     boolean accountExists(int accountNo) throws SQLException;
 
     BigDecimal getBalance(int accountNo) throws SQLException;
+
+    boolean applyLoan(int accountNo, String loanType) throws SQLException;
 }

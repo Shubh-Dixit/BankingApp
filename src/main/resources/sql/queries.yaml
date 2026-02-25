@@ -52,3 +52,6 @@ transaction:
   log_withdrawal: >
     INSERT INTO TRANSACTIONS (SENDER_ACCOUNT, RECEIVER_ACCOUNT, AMOUNT, TX_TYPE, REMARK) 
     VALUES (?, ?, ?, 'WITHDRAWAL', 'ATM/Counter Withdrawal')
+
+loan:
+  apply: "INSERT INTO LOAN_APPLICATIONS (ACCOUNT_NO, LOAN_TYPE) VALUES (?, ?)"

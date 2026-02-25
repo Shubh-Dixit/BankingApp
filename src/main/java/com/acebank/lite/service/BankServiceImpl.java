@@ -249,28 +249,35 @@ public class BankServiceImpl implements BankService {
     }
 
     @Override
-    public boolean applyForLoan(String firstName, String email, String loanType) {
-        String subject = "Loan Application Received - AceBank";
-        String body = String.format(
-                """
-                        Dear %s,
-
-                        Thank you for applying for a %s loan with AceBank.
-                        We have received your request and our team will review it shortly.
-
-                        We will be in touch with you as soon as a decision is made.
-
-                        Sincerely,
-                        The AceBank Team""",
-                firstName, loanType);
-
+    public boolean applyForLoan(int accountNo, String firstName, String email, String loanType) {
         try {
-            MailUtil.sendMail(email, subject, body);
-            return true;
-        } catch (Exception e) {
-            log.severe("Failed to send loan confirmation email: " + e.getMessage());
-            return false;
+            boolean isSaved = userDao.applyLoan(accountNo, loanType);
+            if (isSaved) {
+                String subject = "Loan Application Received - AceBank";
+                String body = String.format(
+                        """
+                                Dear %s,
+
+                                Thank you for applying for a %s loan with AceBank.
+                                We have received your request and our team will review it shortly.
+
+                                We will be in touch with you as soon as a decision is made.
+
+                                Sincerely,
+                                The AceBank Team""",
+                        firstName, loanType);
+
+                try {
+                    MailUtil.sendMail(email, subject, body);
+                } catch (Exception e) {
+                    log.warning("Failed to send loan confirmation email: " + e.getMessage());
+                }
+                return true;
+            }
+        } catch (SQLException e) {
+            log.severe("Failed to apply for loan: " + e.getMessage());
         }
+        return false;
     }
 
 }

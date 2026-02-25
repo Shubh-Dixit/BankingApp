@@ -30,6 +30,7 @@ public class Loan extends HttpServlet {
             return;
         }
 
+        Integer accountNo = (Integer) session.getAttribute("accountNumber");
         String loanType = request.getParameter("loanType");
         String firstName = (String) session.getAttribute("firstName");
         String email = (String) session.getAttribute("email");
@@ -37,7 +38,7 @@ public class Loan extends HttpServlet {
         log.info("Processing " + loanType + " application for: " + email);
 
         // Call the Service Layer to handle the "Business Logic" of the loan application
-        boolean isApplied = bankService.applyForLoan(firstName, email, loanType);
+        boolean isApplied = bankService.applyForLoan(accountNo, firstName, email, loanType);
 
         if (isApplied) {
             response.sendRedirect("home?msg=Loan+Application+Submitted");

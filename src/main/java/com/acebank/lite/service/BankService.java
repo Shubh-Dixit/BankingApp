@@ -31,5 +31,5 @@ public interface BankService {
 
     boolean updatePasswordByEmail(String email, String newPassword);
 
-    public boolean applyForLoan(String firstName, String email, String loanType);
+    public boolean applyForLoan(int accountNo, String firstName, String email, String loanType);
 }

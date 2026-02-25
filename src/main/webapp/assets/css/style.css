@@ -1,0 +1,68 @@
+/* login.jsp */
+.parchment-bg {
+    background-color: #fcfbf8;
+    background-image: radial-gradient(#ece9df 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+}
+
+.underline-input {
+    border-bottom: 1.5px solid #0f172a;
+    transition: border-color 0.3s ease;
+}
+
+.underline-input:focus {
+    border-bottom-color: #ecb913;
+    outline: none;
+    box-shadow: none !important;
+}
+
+/* sign-up.jsp */
+.parchment-texture-radial {
+    background-color: #f8f8f6;
+    background-image: radial-gradient(#ecb91310 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.gold-border {
+    border: 1px solid #ecb91340;
+}
+
+.gold-shadow {
+    box-shadow: 0 10px 30px -10px rgba(236, 185, 19, 0.15);
+}
+
+/* index.jsp */
+.gilded-frame {
+    border: 4px solid #ecb913;
+    padding: 4px;
+    position: relative;
+}
+
+.gilded-frame::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 1px solid #ecb913;
+    pointer-events: none;
+}
+
+.parchment-texture-img {
+    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgBNCdtBq_89gxcoYmAhvxZVBtbjlsP2XG0ztZwQCCA0EQSLV55AgyQ6ajn9j_k8t6emRf36rDc8n61kQH4eyiI06OuKgFtAFfpD96qBEWRt3yxrvnejCnrXgUou0bD_2pIKHs4WaWGyIEePuaV0cjcxJnz1ecbU8-zz-9k57Mmf7VldXpLMTQIQY-p6D9yz2hE9fiL2CXufWnWg_SpvrV-pGhtTuMyh7SacRyksI-XwAAmOGg0UHigQXuslJ4IWjUwkRDAOCVmvU');
+}
+
+/* Home.jsp and Loan.jsp */
+.sans-text {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.parchment-border {
+    border-color: rgba(236, 185, 19, 0.2);
+}
+
+
+h1, h2, h3 {
+    font-family: 'Noto Serif', serif;
+}
